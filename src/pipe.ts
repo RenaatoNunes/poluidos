@@ -1,6 +1,6 @@
 import * as ex from "excalibur";
 import { Config } from "./config";
-import { Resources, ObstaculoImages } from "./resources";
+import { ObstaculoImages } from "./resources";
 
 export class Pipe extends ex.Actor {
     scored = false;

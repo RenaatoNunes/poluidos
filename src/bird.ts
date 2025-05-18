@@ -75,10 +75,6 @@ export class Bird extends ex.Actor {
 
         this.vel.y = ex.clamp(this.vel.y, Config.BirdMinVelocity, Config.BirdMaxVelocity);
 
-        // The "speed" the bird will move relative to pipes
-        const angle = ex.vec(Config.PipeSpeed, this.vel.y).toAngle();
-        // this.rotation = angle * 0.5; // menos inclinado
-
         if (this.vel.y > 0) {
             this.graphics.use('down');
         }

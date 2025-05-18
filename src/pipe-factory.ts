@@ -1,6 +1,6 @@
 import * as ex from "excalibur";
 import { Pipe } from "./pipe";
-import { Config } from "./config";
+// import { Config } from "./config";
 import { Level } from "./level";
 import { ScoreTrigger } from "./score-trigger";
 
