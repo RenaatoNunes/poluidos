@@ -1,7 +1,7 @@
 import * as ex from "excalibur";
 
 // ✅ Imagens dos obstáculos (vários tipos)
-export const ObstaculoImages = [
+export const TrashImages = [
   new ex.ImageSource('./images/garrafa.png'),
   new ex.ImageSource('./images/latinha.png'),
   new ex.ImageSource('./images/pneu.png'),
@@ -24,13 +24,13 @@ export const Resources = {
   ScoreSound: new ex.Sound('./sounds/score.wav'),
 
   // Música
-  BackgroundMusic: new ex.Sound('./sounds/two_left_socks.ogg')
+  BackgroundMusic: new ex.Sound('./sounds/background.wav')
 } as const;
 
 // ✅ Loader com todos os recursos
 export const ResourceLoader = new ex.Loader([
   // Obstáculos variados
-  ...ObstaculoImages,
+  ...TrashImages,
 
   // Imagens
   Resources.TurtleImage,

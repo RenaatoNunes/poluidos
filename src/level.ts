@@ -1,7 +1,7 @@
 import * as ex from "excalibur";
-import { Bird } from "./bird";
-import { Pipe } from "./pipe";
-import { PipeFactory } from "./pipe-factory";
+import { Turtle } from "./turtle";
+import { Trash } from "./trash";
+import { TrashFactory } from "./trash-factory";
 import { Config } from "./config";
 import { Ground } from "./ground";
 import { Resources } from "./resources";
@@ -10,8 +10,8 @@ export class Level extends ex.Scene {
     score: number = 0;
     best: number = 0;
     random = new ex.Random();
-    pipeFactory = new PipeFactory(this, this.random, Config.TrashInterval);
-    bird = new Bird(this);
+    trashFactory = new TrashFactory(this, this.random, Config.TrashInterval);
+    turtle = new Turtle(this);
     ground!: Ground;
 
     startGameLabel = new ex.Label({
@@ -84,7 +84,7 @@ export class Level extends ex.Scene {
         oil.graphics.use(oilSprite);
         this.add(oil);
 
-        this.add(this.bird);
+        this.add(this.turtle);
         this.add(this.startGameLabel);
         this.add(this.scoreLabel);
         this.add(this.bestLabel);
@@ -100,9 +100,9 @@ export class Level extends ex.Scene {
 
     override onPostUpdate(_engine: ex.Engine): void {
         for (const actor of this.actors) {
-            if (actor instanceof Pipe && !actor.scored) {
-                const pipeRightEdge = actor.pos.x + actor.width / 2;
-                if (pipeRightEdge < this.bird.pos.x) {
+            if (actor instanceof Trash && !actor.scored) {
+                const trashRightEdge = actor.pos.x + actor.width / 2;
+                if (trashRightEdge < this.turtle.pos.x) {
                     actor.scored = true;
                     this.incrementScore();
                     Resources.ScoreSound.play();
@@ -131,15 +131,15 @@ export class Level extends ex.Scene {
         this.engine.input.pointers.once('down', () => {
             this.reset();
             this.startGameLabel.graphics.isVisible = false;
-            this.bird.start();
-            this.pipeFactory.start();
+            this.turtle.start();
+            this.trashFactory.start();
             this.ground.start();
         });
     }
 
     reset() {
-        this.bird.reset();
-        this.pipeFactory.reset();
+        this.turtle.reset();
+        this.trashFactory.reset();
         this.score = 0;
         this.scoreLabel.text = `Pontos: ${this.score}`;
         //Resetando os valores da dificuldade para o padrão
@@ -148,8 +148,8 @@ export class Level extends ex.Scene {
     }
 
     triggerGameOver() {
-        this.pipeFactory.stop();
-        this.bird.stop();
+        this.trashFactory.stop();
+        this.turtle.stop();
         this.ground.stop();
         this.showStartInstructions();
         Resources.FailSound.play();

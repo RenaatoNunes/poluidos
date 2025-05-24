@@ -2,7 +2,7 @@ import * as ex from "excalibur";
 import { Level } from "./level";
 import { Config } from "./config";
 import { Resources } from "./resources";
-import { Bird } from "./bird";
+import { Turtle } from "./turtle";
 
 export class ScoreTrigger extends ex.Actor {
     constructor(pos: ex.Vector, private level: Level) {
@@ -21,7 +21,7 @@ export class ScoreTrigger extends ex.Actor {
 
     override onInitialize(): void {
         this.on('collisionstart', (ev) => {
-            if (ev.other instanceof Bird) {
+            if (ev.other instanceof Turtle) {
                 this.level.incrementScore();
                 Resources.ScoreSound.play();
                 this.kill(); // impede pontuação repetida

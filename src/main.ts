@@ -1,5 +1,5 @@
 import * as ex from 'excalibur';
-import { Resources, ObstaculoImages } from './resources';
+import { Resources, TrashImages } from './resources';
 import { Level } from './level';
 import { initMuteButton } from './ui';
 
@@ -26,7 +26,7 @@ const game = new ex.Engine({
 // ✅ Inclui também as imagens dos obstáculos
 const loader = new ex.Loader([
   ...Object.values(Resources),
-  ...ObstaculoImages
+  ...TrashImages
 ]);
 
 game.start(loader).then(() => {
