@@ -24,7 +24,7 @@ export class Bird extends ex.Actor {
 
     override onInitialize(): void {
         const spriteSheet = ex.SpriteSheet.fromImageSource({
-            image: Resources.BirdImage,
+            image: Resources.TurtleImage,
             grid: {
                 rows: 1,
                 columns: 3,

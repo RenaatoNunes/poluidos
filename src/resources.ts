@@ -11,7 +11,7 @@ export const ObstaculoImages = [
 // ✅ Outros recursos do jogo
 export const Resources = {
   // Imagens
-  BirdImage: new ex.ImageSource('./images/bird.png'),
+  TurtleImage: new ex.ImageSource('./images/turtle.png'),
   BackgroundImage: new ex.ImageSource('./images/bg.jpg'),
   OilImage: new ex.ImageSource('./images/oil.png'),
   GroundImage: new ex.ImageSource('./images/ground.png', {
@@ -33,7 +33,7 @@ export const ResourceLoader = new ex.Loader([
   ...ObstaculoImages,
 
   // Imagens
-  Resources.BirdImage,
+  Resources.TurtleImage,
   Resources.BackgroundImage,
   Resources.OilImage,
   Resources.GroundImage,
