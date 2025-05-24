@@ -11,7 +11,7 @@ export class ScoreTrigger extends ex.Actor {
             width: 2, // bem fino, só pra detectar passagem
             height: 500, // altura que cobre toda a tela
             anchor: ex.vec(0.5, 0.5),
-            vel: ex.vec(-Config.PipeSpeed, 0),
+            vel: ex.vec(-Config.TrashSpeed, 0),
             collisionType: ex.CollisionType.Passive, // ⬅️ importante!
             z: 0
         });

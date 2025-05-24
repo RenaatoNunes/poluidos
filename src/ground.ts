@@ -23,7 +23,7 @@ export class Ground extends ex.Actor {
 
     onPostUpdate(_engine: ex.Engine, elapsedMs: number): void {
         if (!this.moving) return;
-        this.groundSprite.sourceView.x += Config.PipeSpeed * (elapsedMs / 1000);
+        this.groundSprite.sourceView.x += Config.TrashSpeed * (elapsedMs / 1000);
         this.groundSprite.sourceView.x = this.groundSprite.sourceView.x % Resources.GroundImage.width;
     }
 

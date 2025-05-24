@@ -10,7 +10,7 @@ export class Level extends ex.Scene {
     score: number = 0;
     best: number = 0;
     random = new ex.Random();
-    pipeFactory = new PipeFactory(this, this.random, Config.PipeInterval);
+    pipeFactory = new PipeFactory(this, this.random, Config.TrashInterval);
     bird = new Bird(this);
     ground!: Ground;
 
@@ -113,8 +113,8 @@ export class Level extends ex.Scene {
 
     incrementScore() {
         this.scoreLabel.text = `Pontos: ${++this.score}`;
-        Config.PipeSpeed += 3; // Aumenta a velocidade dos obstáculos
-        Config.PipeInterval -= 100; // Diminui o intervalo entre os obstáculos
+        Config.TrashSpeed += 3; // Aumenta a velocidade dos obstáculos
+        Config.TrashInterval -= 100; // Diminui o intervalo entre os obstáculos
         this.setBestScore(this.score);
     }
 
@@ -142,6 +142,9 @@ export class Level extends ex.Scene {
         this.pipeFactory.reset();
         this.score = 0;
         this.scoreLabel.text = `Pontos: ${this.score}`;
+        //Resetando os valores da dificuldade para o padrão
+        Config.TrashSpeed = Config.TrashSpeedInitial;
+        Config.TrashInterval = Config.TrashIntervalInitial;
     }
 
     triggerGameOver() {

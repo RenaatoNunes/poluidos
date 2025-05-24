@@ -13,7 +13,7 @@ export class Pipe extends ex.Actor {
             width: Pipe.PIPE_WIDTH,
             height: Pipe.PIPE_HEIGHT,
             anchor: ex.vec(0.5, 0.5), // centraliza o sprite
-            vel: ex.vec(-Config.PipeSpeed, 0),
+            vel: ex.vec(-Config.TrashSpeed, 0),
             z: -1
         });
 

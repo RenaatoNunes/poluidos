@@ -13,7 +13,7 @@ export class Bird extends ex.Actor {
     downAnimation!: ex.Animation;
     constructor(private level: Level) {
         super({
-            pos: Config.BirdStartPos,
+            pos: Config.TurtleStartPos,
             radius: 8,
             // rotating box double counts
             // width: 16,
@@ -59,7 +59,7 @@ export class Bird extends ex.Actor {
 
         // if the space bar or the first pointer was down
         if (!this.jumping && this.isInputActive(engine)) {
-            this.vel.y += Config.BirdJumpVelocity;
+            this.vel.y += Config.TurtleJumpVelocity;
             this.jumping = true;
             this.graphics.use('up');
             // rewind
@@ -73,7 +73,7 @@ export class Bird extends ex.Actor {
             this.jumping = false;
         }
 
-        this.vel.y = ex.clamp(this.vel.y, Config.BirdMinVelocity, Config.BirdMaxVelocity);
+        this.vel.y = ex.clamp(this.vel.y, Config.TurtleMinVelocity, Config.TurtleMaxVelocity);
 
         if (this.vel.y > 0) {
             this.graphics.use('down');
@@ -82,12 +82,12 @@ export class Bird extends ex.Actor {
 
     start() {
         this.playing = true;
-        this.pos = Config.BirdStartPos; // starting position
-        this.acc = ex.vec(0, Config.BirdAcceleration); // pixels per second per second
+        this.pos = Config.TurtleStartPos; // starting position
+        this.acc = ex.vec(0, Config.TurtleAcceleration); // pixels per second per second
     }
 
     reset() {
-        this.pos = Config.BirdStartPos; // starting position
+        this.pos = Config.TurtleStartPos; // starting position
         this.stop();
     }
 
