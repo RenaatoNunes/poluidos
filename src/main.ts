@@ -23,16 +23,25 @@ const game = new ex.Engine({
   scenes: { Level }
 });
 
+game.screen.events.on('resize', () => {
+  location.reload();
+});
+
 // ✅ Inclui também as imagens dos obstáculos
 const loader = new ex.Loader([
   ...Object.values(Resources),
   ...TrashImages
 ]);
 
+loader.playButtonText = "Jogar";
+
 game.start(loader).then(() => {
-  game.goToScene('Level');
-  positionUI(game);
-  initMuteButton();
+  const loaderBg = document.getElementById('loader-background');
+    if (loaderBg) loaderBg.style.display = 'none';
+
+    game.goToScene('Level');
+    positionUI(game);
+    initMuteButton();
 });
 
 game.screen.events.on('resize', () => positionUI(game));

@@ -10,27 +10,39 @@
   <!-- SEO e redes sociais -->
   <meta property="og:locale" content="pt_BR" />
   <meta property="og:title" content="Poluídos | Jogo de Desafio Ambiental" />
-  <meta property="og:description" content="Desvie dos obstáculos e ajude a limpar o céu! Jogo feito em Excalibur.js" />
-  <meta property="og:url" content="https://renaatonunes.github.io/poluidos/" />
-  <meta property="og:image" content="https://renaatonunes.github.io/poluidos/images/social.jpg" />
-  
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://renaatonunes.github.io/poluidos/images/social.jpg" />
+  <meta property="og:description" content="Desvie dos obstáculos e ajude a tartaruga marinha" />
 
   <link rel="stylesheet" href="./src/style.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&display=swap">
 
   <title>Poluídos | Jogo Ambiental</title>
 </head>
 
 <body>
-  <div class="ui">
-    <button id="mute" class="button-reset" aria-pressed="false" aria-label="Mute/Unmute">
-      <i class="material-icons unpressed">volume_up</i>
-      <i class="material-icons pressed">volume_off</i>
-    </button>
+  <div id="loader-background" style="
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('./images/capa.png') center center no-repeat;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+  ">
+    <h1 style="
+      color: white;
+      font-family: 'Fredoka', sans-serif;
+      font-size: 56px;
+      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+      margin: 20px;
+      margin-top: 100px;
+    ">
+      POLUÍDOS
+    </h1>
   </div>
-
   <script type="module" src="./src/main.ts"></script>
 </body>
 

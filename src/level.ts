@@ -77,8 +77,8 @@ export class Level extends ex.Scene {
 
         const oilSprite = Resources.OilImage.toSprite();
         oilSprite.destSize = {
-        width: engine.drawWidth,
-        height: Resources.OilImage.height // ou ajuste como quiser
+            width: engine.drawWidth,
+            height: 100 // ou ajuste como quiser
         };
 
         oil.graphics.use(oilSprite);
@@ -89,7 +89,7 @@ export class Level extends ex.Scene {
         this.add(this.scoreLabel);
         this.add(this.bestLabel);
 
-        this.ground = new Ground(ex.vec(0, engine.screen.drawHeight - 64));
+        this.ground = new Ground(ex.vec(0, engine.screen.drawHeight - 35));
         this.add(this.ground);
 
         const bestScore = localStorage.getItem('bestScore');
@@ -123,7 +123,7 @@ export class Level extends ex.Scene {
             localStorage.setItem('bestScore', this.score.toString());
             this.best = score;
         }
-        this.bestLabel.text = `Recorde: ${this.best}`;
+        this.bestLabel.text = `Recorde: ${this.best} `;
     }
 
     showStartInstructions() {

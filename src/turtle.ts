@@ -15,9 +15,6 @@ export class Turtle extends ex.Actor {
         super({
             pos: Config.TurtleStartPos,
             radius: 8,
-            // rotating box double counts
-            // width: 16,
-            // height: 16,
             color: ex.Color.Yellow
         });
     }
@@ -44,9 +41,9 @@ export class Turtle extends ex.Actor {
 
         this.graphics.use('start');
 
-        this.on('exitviewport', () => {
-            this.level.triggerGameOver();
-        });
+        // this.on('exitviewport', () => {
+        //     this.level.triggerGameOver();
+        // });
     }
 
     private isInputActive(engine: ex.Engine) {
@@ -77,6 +74,18 @@ export class Turtle extends ex.Actor {
 
         if (this.vel.y > 0) {
             this.graphics.use('down');
+        }
+
+        const screenHeight = engine.screen.resolution.height;
+
+        if (this.pos.y + this.height / 2 >= screenHeight) {
+            // 🛑 Bateu no fundo
+            this.level.triggerGameOver();
+        }
+
+        if (this.pos.y - this.height / 2 <= 0) {
+            // 🛑 Bateu no topo
+            this.level.triggerGameOver();
         }
     }
 

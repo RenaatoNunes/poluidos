@@ -2,10 +2,15 @@ import * as ex from "excalibur";
 
 // ✅ Imagens dos obstáculos (vários tipos)
 export const TrashImages = [
+  new ex.ImageSource('./images/copo.png'),
+  new ex.ImageSource('./images/garrafa_oleo.png'),
+  new ex.ImageSource('./images/garrafa_plastica.png'),
   new ex.ImageSource('./images/garrafa.png'),
+  new ex.ImageSource('./images/garrafa2.png'),
   new ex.ImageSource('./images/latinha.png'),
-  new ex.ImageSource('./images/pneu.png'),
-  new ex.ImageSource('./images/copo.png')
+  new ex.ImageSource('./images/latinha2.png'),
+  new ex.ImageSource('./images/mascara.png'),
+  new ex.ImageSource('./images/sacola.png'),
 ];
 
 // ✅ Outros recursos do jogo

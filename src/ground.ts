@@ -8,8 +8,8 @@ export class Ground extends ex.Actor {
     constructor(pos: ex.Vector) {
         super({
             pos,
-            anchor: ex.vec(0, -0.3),
-            height: 100,
+            anchor: ex.vec(0, 0),
+            height: 40,
             width: 114,
             z: 1
         })

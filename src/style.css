@@ -25,26 +25,6 @@ body {
   padding: 0;
 }
 
-#mute {
-  font-size: 16px;
-  border-radius: 20px;
-  width: 32px;
-  height: 32px;
-  padding-top: 3px;
-}
-
-#mute[aria-pressed="true"] .pressed {
-  display: inline;
-}
-
-#mute[aria-pressed="false"] .pressed {
-  display: none;
-}
-
-#mute[aria-pressed="true"] .unpressed {
-  display: none;
-}
-
-#mute[aria-pressed="false"] .unpressed {
-  display: inline;
+#excalibur-play-root {
+  margin-top: 20vh;
 }
